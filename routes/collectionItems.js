@@ -27,8 +27,10 @@ router.get('/:id', (req,res)=>{
  */
 router.post('/', (req,res) => {
 
-  const { collectionId, imgUrl, wordId } = req.body;
+  let { collectionId, imgUrl, wordId } = req.body;
   
+  collectionId = Number(collectionId);
+
   db.makeNewCollectionItem(collectionId, imgUrl, wordId)
     .then(item => {
       res.status(200).json(item);
