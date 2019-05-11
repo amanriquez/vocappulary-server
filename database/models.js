@@ -149,7 +149,7 @@ const findOrCreateTranslations = (collectionItemId, getAudio = false) => {
                   wordId: collectionItemRow.wordId,
                 })
               })
-          
+
               .then(transation => {
                 res(transation)
               })

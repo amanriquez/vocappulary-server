@@ -31,6 +31,23 @@ app.use('/user', user);
 
 ///////////////
 
+const path = require('path');
+const fileUpload = require('express-fileupload');
+const { writeFile } = require('fs');
+
+
+app.use(fileUpload({
+  limits: {filesize: 50 * 1024 * 1024}
+}))
+
+app.post('/upload', (req, res) => {
+
+  const {fileUploaded} = req.files;
+  console.log(req);
+  res.send('got it');
+})
+
+
 
 /**
  * returns all languages
